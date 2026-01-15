@@ -1,9 +1,23 @@
-const myform = document.getElementById('myform') 
-const fullName = document.getElementById('name')
-const email = document.getElementById('email')
-const password = document.getElementById('password')
+const myform = document.getElementById('myform')
+const container = document.getElementById('container')
+ const age = document.getElementById('age')
+const btn = document.getElementById('btn');
 
-myform.addEventListener('onSubmit', onSubmit )
-    function onSubmit(){
 
-}
+                    
+
+const x = 18
+    const m = 20
+btn.addEventListener('click', function(e){
+    e.preventDefault()
+
+    
+if  (age < x ){
+    console.log('still a child')
+}else if (age > m ){
+    console.log('Welcome')
+}else{
+    // console.log('error')
+}   
+    
+})
