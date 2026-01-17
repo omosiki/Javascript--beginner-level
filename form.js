@@ -1,28 +1,48 @@
+
+// const container = document.getElementById('container')
 const myform = document.getElementById('myform')
-const container = document.getElementById('container')
- const age = document.getElementById('age')
+
 const btn = document.getElementById('btn');
 
-  // create aform data
-      // Create a FormData object from the for
-      const formData = new formData(myform)
-      const ages = formData.get('age')
-      console.log(ages)
-                    
-
-const x = 18
+    const x = 18
 const m = 20
-myform.addEventListener('submit', function(e){
-    e.preventDefault()
 
-  
-if  (age < x ){
-    console.log('still a child')
-}else if (age > m ){
+btn.addEventListener('click', function(e){
+    e.preventDefault()
+  const ages = document.getElementById('age')
+    const birthYear = parseInt(ages.value)
+    console.log(birthYear)
+
+
+if  ( birthYear < x ){
+    console.log('still a child') 
+}else if ( birthYear > m){
     console.log('Welcome')
-}else{
+ }else{
     console.log('error')
-}   
-    
+ }   
+
 })
+
+
+
+
+
+
+
+
+
+// btn.addEventListener('submit', function(e){
+//     e.preventDefault()
+//     const realAge = ages.value;
+  
+// if  ( realAge < x ){
+//     console.log('still a child')
+// }else if ( m < realAge ){
+//     console.log('Welcome')
+// }else{
+//     console.log('error')
+// }   
+    
+// })
 
