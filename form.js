@@ -1,10 +1,8 @@
 
 // const container = document.getElementById('container')
 const myform = document.getElementById('myform')
-
 const btn = document.getElementById('btn');
-
-    const x = 18
+const x = 18
 const m = 20
 
 btn.addEventListener('click', function(e){
@@ -12,10 +10,11 @@ btn.addEventListener('click', function(e){
   const ages = document.getElementById('age')
     const birthYear = parseInt(ages.value)
     console.log(birthYear)
-
+    const messageG = document.getElementById('error')
 
 if  ( birthYear < x ){
-    console.log('still a child') 
+    messageG.textContent = 'Still a child'
+    setTimeout(() => messageG.remove(), 3000)
 }else if ( birthYear > m){
     console.log('Welcome')
  }else{
@@ -23,6 +22,24 @@ if  ( birthYear < x ){
  }   
 
 })
+const todos = [
+    {
+        id: 1 ,
+        text: 'Take out the trash',
+        isCompleted: true
+    },
+
+    {
+        id: 2 ,
+        text: ' meating with boss',
+        isCompleted: true
+    },
+    {
+        id: 3 ,
+        text: ' trash',
+        isCompleted: false
+    }
+]
 
 
 
@@ -30,19 +47,4 @@ if  ( birthYear < x ){
 
 
 
-
-
-// btn.addEventListener('submit', function(e){
-//     e.preventDefault()
-//     const realAge = ages.value;
-  
-// if  ( realAge < x ){
-//     console.log('still a child')
-// }else if ( m < realAge ){
-//     console.log('Welcome')
-// }else{
-//     console.log('error')
-// }   
-    
-// })
 
