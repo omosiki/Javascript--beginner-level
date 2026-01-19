@@ -16,7 +16,7 @@ if  ( birthYear < x ){
     messageG.textContent = 'Still a child'
     setTimeout(() => messageG.remove(), 3000)
 }else if ( birthYear > m){
-    console.log('Welcome')
+    window.location.href = 'inquaryForm.html';
  }else{
     console.log('error')
  }   
