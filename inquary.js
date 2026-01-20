@@ -14,16 +14,16 @@
 
         const  attachmentFiles = attactmentData.files;
         const data = {
-             emailValue: emailAddress.value,
+            emailValue: emailAddress.value,
             phoneValue : phoneNumber.value,
-         companySValue : companyS.value,
-    courseValue : courseStudy.value,
-     messageValue : messageInput.value,
-    inquaryValue : inquaryType.value,
-     datetimeValue : dateTime.value,
-    attachmentValue : attachmentFiles,
-     firstAttachment : attachmentFiles[0],
-     checkboxValue : checkBox.checked
+            companySValue : companyS.value,
+            courseValue : courseStudy.value,
+            messageValue : messageInput.value,
+            inquaryValue : inquaryType.value,
+            datetimeValue : dateTime.value,
+            attachmentValue : attachmentFiles,
+            firstAttachment : attachmentFiles[0],
+            checkboxValue : checkBox.checked
      
         }
         console.log(data)
@@ -31,13 +31,6 @@
     }
 
     
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const myForm = document.getElementById('myform')
 
@@ -48,8 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Form submitted")
         collectFormData()
+        showAlert()
+        
     })
-
+    function showAlert() {
+    Swal.fire({
+    title: 'Success!',
+    text: 'You successfully used SweetAlert2 in your project!',
+    icon: 'success',
+    confirmButtonText: 'Cool'
+  });
+}
 
 })
 
@@ -57,5 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// console.log(nameValue)
+
+
 
