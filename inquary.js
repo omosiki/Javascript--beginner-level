@@ -1,38 +1,36 @@
-// export default {
-//   plugins: {
-//     '@tailwindcss/postcss': {},
-//   },
-// };
 
-// const fullName = document.getElementById('fullname')
-// const emailAddress = document.getElementById('email')
-// const phoneNumber = document.getElementById('phone')
-// const university = document.getElementById('institution')
-// const courseStudy = document.getElementById('course')
-// const messageInput = document.getElementById('message')
-// const inquaryType = document.getElementById('inquiry-type')
-// const dateTime = document.getElementById('preferred-contact')
-// const attactmentData = document.getElementById('attachment')
-// const checkBox = document.getElementById('consentCheckbox')
+// Accessing the value of each input fields
+  const emailAddress = document.getElementById('email')
+    const phoneNumber = document.getElementById('phone')
+    const companyS = document.getElementById('company')
+    const courseStudy = document.getElementById('subject')
+    const messageInput = document.getElementById('message')
+    const inquaryType = document.getElementById('inquiry-type')
+    const dateTime = document.getElementById('preferred-contact')
+    const attactmentData = document.getElementById('attachment')
+    const checkBox = document.getElementById('consentCheckbox')
 
+    function collectFormData (){
 
-const submitBtn = document.querySelector('submit-btn')
+        const  attachmentFiles = attactmentData.files;
+        const data = {
+             emailValue: emailAddress.value,
+            phoneValue : phoneNumber.value,
+         companySValue : companyS.value,
+    courseValue : courseStudy.value,
+     messageValue : messageInput.value,
+    inquaryValue : inquaryType.value,
+     datetimeValue : dateTime.value,
+    attachmentValue : attachmentFiles,
+     firstAttachment : attachmentFiles[0],
+     checkboxValue : checkBox.checked
+     
+        }
+        console.log(data)
+        return data
+    }
 
-submitBtn.addEventListener('submit', onSubmit);
-function onSubmit(){
-
-
-const fullName = document.getElementById('fullname')
-const emailAddress = document.getElementById('email')
-const phoneNumber = document.getElementById('phone')
-const university = document.getElementById('institution')
-const courseStudy = document.getElementById('course')
-const messageInput = document.getElementById('message')
-const inquaryType = document.getElementById('inquiry-type')
-const dateTime = document.getElementById('preferred-contact')
-const attactmentData = document.getElementById('attachment')
-const checkBox = document.getElementById('consentCheckbox')
-
+    
 
 
 
@@ -40,22 +38,24 @@ const checkBox = document.getElementById('consentCheckbox')
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const myForm = document.getElementById('myform')
+
+    myForm.addEventListener('submit', function(event){
+    event.preventDefault();
+        
+  
+
+        console.log("Form submitted")
+        collectFormData()
+    })
+
+
+})
 
 
 
-const nameValue = fullName.value;
-const emailValue = emailAddress.value
-const phoneValue = phoneNumber.value
-const universityValue = university.value
-const courseValue = courseStudy.value
-const messageValue = messageInput.value
-const inquaryValue = inquaryType.value
-const datetimeValue = dateTime.value
-const attachmentValue = attactmentData.value
-const checkboxValue = checkBox.checked
-console.log('Fullname:', nameValue)
 
 
+// console.log(nameValue)
 
-
-}
