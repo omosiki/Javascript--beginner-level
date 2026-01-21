@@ -1,5 +1,6 @@
 
 // Accessing the value of each input fields
+const fullName = document.getElementById('fullname')
   const emailAddress = document.getElementById('email')
     const phoneNumber = document.getElementById('phone')
     const companyS = document.getElementById('company')
@@ -14,6 +15,7 @@
 
         const  attachmentFiles = attactmentData.files;
         const data = {
+            fullNameValue: fullName.value,    
             emailValue: emailAddress.value,
             phoneValue : phoneNumber.value,
             companySValue : companyS.value,
@@ -29,7 +31,15 @@
         console.log(data)
         return data
     }
-
+    function savetoLocalStorage(formData) {
+    try {
+        // Convert the form data object into a JSON string
+        localStorage.setItem('formData', JSON.stringify(formData));
+        console.log("Data saved to localStorage.");
+    } catch (error) {
+        console.error("Could not save to localStorage:", error);
+    }
+}
     
 document.addEventListener('DOMContentLoaded', () => {
     const myForm = document.getElementById('myform')
@@ -42,6 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Form submitted")
         collectFormData()
         showAlert()
+        // savetoLocalStorage()
+         const collectedData = collectFormData();
+    savetoLocalStorage(collectedData)
         
     })
     function showAlert() {
@@ -52,6 +65,17 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmButtonText: 'Cool'
   });
 }
+// const user = {fullName, emailAddress, phoneNumber,companyS , courseStudy,messageInput,inquaryType,dateTime,attactmentData,checkBox}
+// function savetoLocalStorage(newUsers){
+//     const users = JSON.parse(localStorage.getItem("users")) ||[]
+//     if(!Array.isArray(users)){
+//         users = []
+//     }
+//     users.push(newUsers)
+//     localStorage.setItem("users", JSON.stringify(users))
+
+// }
+   
 
 })
 
