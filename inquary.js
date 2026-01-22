@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const myForm = document.getElementById('myform')
 
     myForm.addEventListener('submit', function(event){
-    event.preventDefault();
+    event.preventDefault(event);
         
   
 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showAlert() {
     Swal.fire({
     title: 'Success!',
-    text: 'You successfully used SweetAlert2 in your project!',
+    text: 'You successfully submited your data!',
     icon: 'success',
     confirmButtonText: 'Cool'
   });

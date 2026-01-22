@@ -10,7 +10,7 @@ btn.addEventListener('click', function(e){
   const ages = document.getElementById('age')
     const birthYear = parseInt(ages.value)
     console.log(birthYear)
-    
+        
 
 if  ( birthYear < x ){
     showAlert()
