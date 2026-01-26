@@ -66,6 +66,7 @@ const todos = [
         isCompleted: false
     }
 ]
+
 console.log(todos[1].text)
 
 const todoJsan = JSON.stringify(todos )
