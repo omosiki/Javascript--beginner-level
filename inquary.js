@@ -65,17 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmButtonText: 'Cool'
   });
 }
-// const user = {fullName, emailAddress, phoneNumber,companyS , courseStudy,messageInput,inquaryType,dateTime,attactmentData,checkBox}
-// function savetoLocalStorage(newUsers){
-//     const users = JSON.parse(localStorage.getItem("users")) ||[]
-//     if(!Array.isArray(users)){
-//         users = []
-//     }
-//     users.push(newUsers)
-//     localStorage.setItem("users", JSON.stringify(users))
-
-// }
-   
+// function display data on a table
+function displayData(){
+    
+}
 
 })
 
