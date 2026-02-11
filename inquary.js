@@ -65,12 +65,37 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmButtonText: 'Cool'
   });
 }
+})
 // function display data on a table
 function displayData(){
-    
-}
+    const tableData = document.querySelector("#dataTable")
+    // get data from local storage
+    const alreadySaveData = localStorage.getItem("formData")
+    if(!alreadySaveData){
+        console.log("No data found")
+        return;
+    }
+    const data = JSON.parse(alreadySaveData)
+    // creat table row
+        const row = document.createElement("tr")
+        row.innerHTML = `
+        <td>${data.fullNameValue}</td>
+        <td>${data.emailValue}</td>
+        <td>${data.phoneValue}</td>
+        <td>${data.companySValue}</td>
+        <td>${data.courseValue}</td>
+        <td>${data.messageValue}</td>
+        <td>${data.inquaryValue}</td>
+        <td>${data.datetimeValue}</td>
+         <td>${data.firstAttachment}</td>
+         <td>${data.checkboxValue}</td>`
+         
 
-})
+    tableData.appendChild(row)
+         
+}
+displayData()
+
 
 
 
