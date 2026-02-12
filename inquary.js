@@ -97,7 +97,10 @@ function displayData(){
 displayData()
 
 
-
+// function save to firebase
+function saveToFireBase(){
+    
+}
 
 
 
