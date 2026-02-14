@@ -96,7 +96,8 @@ function displayData(){
 }
 displayData()
 
-
+const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
 // function save to firebase
 function saveToFireBase(){
     const firebaseConfig = {
