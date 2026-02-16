@@ -1,3 +1,35 @@
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
+  import {getDatabase, ref,push} from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCgza0d-lKQpGrueF-iNr04_ljQhTHReY0",
+    authDomain: "myformapp-69208.firebaseapp.com",
+    databaseURL: "myformapp-69208-default-rtdb.firebaseio.com",
+    projectId: "myformapp-69208",
+    storageBucket: "myformapp-69208.firebasestorage.app",
+    messagingSenderId: "72313525026",
+    appId: "1:72313525026:web:4cbc8268d3347a9594cb7b",
+    measurementId: "G-KKN98E23D3"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const database =  getDatabase(app)
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
+
+
+
+
 
 // Accessing the value of each input fields
 const fullName = document.getElementById('fullname')
@@ -31,30 +63,39 @@ const fullName = document.getElementById('fullname')
         console.log(data)
         return data
     }
-    function savetoLocalStorage(formData) {
-    try {
-        // Convert the form data object into a JSON string
-        localStorage.setItem('formData', JSON.stringify(formData));
-        console.log("Data saved to localStorage.");
-    } catch (error) {
-        console.error("Could not save to localStorage:", error);
-    }
+    // Create  a function to save to firebse
+function saveTofireBase(formData){
+    const formRef = ref(database, "submissions")
+    push(formRef,{
+        fullName: formData.fullNameValue,
+        emailAddress: formData.emailValue,
+        phoneNumber: formData.phoneValue,
+        companyS : formData.companySValue,
+        courseStudy: formData.courseValue,
+        messageInput : formData.messageValue,
+        dateTime: formData.datetimeValue,
+        checkBox: formData.checkboxValue,
+        createdAt: Date.now()
+    })
+    .then(( ) => {
+        console.log("Data saved to firebase")
+    })
+    .catch((error) => {
+        console.error("Errorsaving to firebase:", error)
+    })
 }
     
 document.addEventListener('DOMContentLoaded', () => {
     const myForm = document.getElementById('myform')
 
     myForm.addEventListener('submit', function(event){
-    event.preventDefault(event);
+    event.preventDefault();
         
-  
-
         console.log("Form submitted")
-        collectFormData()
-        showAlert()
-        // savetoLocalStorage()
+
          const collectedData = collectFormData();
-    savetoLocalStorage(collectedData)
+        saveTofireBase(collectedData)
+          showAlert()
         
     })
     function showAlert() {
@@ -66,53 +107,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 }
 })
-// function display data on a table
-function displayData(){
-    const tableData = document.querySelector("#dataTable")
-    // get data from local storage
-    const alreadySaveData = localStorage.getItem("formData")
-    if(!alreadySaveData){
-        console.log("No data found")
-        return;
-    }
-    const data = JSON.parse(alreadySaveData)
-    // creat table row
-        const row = document.createElement("tr")
-        row.innerHTML = `
-        <td>${data.fullNameValue}</td>
-        <td>${data.emailValue}</td>
-        <td>${data.phoneValue}</td>
-        <td>${data.companySValue}</td>
-        <td>${data.courseValue}</td>
-        <td>${data.messageValue}</td>
-        <td>${data.inquaryValue}</td>
-        <td>${data.datetimeValue}</td>
-         <td>${data.firstAttachment}</td>
-         <td>${data.checkboxValue}</td>`
-         
-
-    tableData.appendChild(row)
-         
-}
-displayData()
-
-const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
-// function save to firebase
-function saveToFireBase(){
-    const firebaseConfig = {
-  apiKey: "XXXX",
-  authDomain: "XXXX",
-  projectId: "XXXX",
-  storageBucket: "XXXX",
-  messagingSenderId: "XXXX",
-  appId: "XXXX"
-};
-
-}
-
-
-
-
-
-
